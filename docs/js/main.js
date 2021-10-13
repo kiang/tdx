@@ -97,6 +97,7 @@ map.on('singleclick', function (evt) {
   pointClicked = false;
   map.forEachFeatureAtPixel(evt.pixel, function (feature, layer) {
     if (false === pointClicked) {
+      var message = '<table class="table table-dark">';
       pointClicked = true;
       var p = feature.getProperties();
       if(p.VILLCODE) {
@@ -110,13 +111,21 @@ map.on('singleclick', function (evt) {
         });
         currentFeature = feature;
         tdx.getSource().refresh();
+        sidebarTitle = p.COUNTYNAME + p.TOWNNAME + p.VILLNAME;
+        message += '<tbody>';
+        message += '<tr><th scope="row" style="width: 100px;">村里</th><td>' + p.COUNTYNAME + p.TOWNNAME + p.VILLNAME + '</td></tr>';
+        message += '<tr><th scope="row" style="width: 100px;">事故死亡</th><td>' + p.dead + '</td></tr>';
+        message += '<tr><th scope="row" style="width: 100px;">事故受傷</th><td>' + p.hurt + '</td></tr>';
+        message += '</tbody></table>';
+      } else {
+        var message = '<table class="table table-dark">';
+        message += '<tbody>';
+        message += '<tr><th scope="row" style="width: 100px;">事故死亡</th><td>' + p.dead + '</td></tr>';
+        message += '<tr><th scope="row" style="width: 100px;">事故受傷</th><td>' + p.hurt + '</td></tr>';
+        message += '</tbody></table>';
       }
       
-      for(k in p) {
-        if(k !== 'geometry') {
-          content.innerHTML += k + ': ' + p[k] + '<br />';
-        }
-      }
+      content.innerHTML = message;
       sidebar.open('home');
     }
   });
