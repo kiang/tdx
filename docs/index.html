@@ -39,6 +39,62 @@
 </head>
 
 <body>
-<h1>交通事故與人口關聯探索課程</h1>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.12&appId=1393405437614114&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div id="sidebar" class="sidebar collapsed">
+        <!-- Nav tabs -->
+        <div class="sidebar-tabs">
+            <ul role="tablist">
+                <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+                <li><a href="#book" role="tab"><i class="fa fa-book"></i></a></li>
+                <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+                <li><a href="https://github.com/kiang/tdx" role="tab" target="_blank"><i
+                            class="fa fa-github"></i></a></li>
+                <li><a href="#fb" role="tab"><i class="fa fa-facebook"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- Tab panes -->
+        <div class="sidebar-content">
+            <div class="sidebar-pane" id="home">
+                <h1 class="sidebar-header"><span id="sidebarTitle">請點選地圖中的點</span><span class="sidebar-close"><i
+                            class="fa fa-caret-left"></i></span></h1>
+                <div id="sidebarContent">
+                    
+                </div>
+                
+            </div>
+            <div class="sidebar-pane" id="book">
+                <h1 class="sidebar-header"><span id="weekTitle">說明</span><span class="sidebar-close"><i
+                            class="fa fa-caret-left"></i></span></h1>
+                <div>
+                    
+                </div>
+            </div>
+            <div class="sidebar-pane" id="settings">
+
+            </div>
+            <div class="sidebar-pane" id="fb">
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="map" class="sidebar-map"></div>
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+    <script src="js/ol.js" type="text/javascript"></script>
+    <script src="js/ol5-sidebar.min.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
 </body>
 </html>
