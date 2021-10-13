@@ -71,8 +71,18 @@ var tdx = new ol.layer.Vector({
   zIndex: 50
 });
 
+var tdxPoints = new ol.layer.Vector({
+  source: new ol.source.Vector({
+    url: 'points.json',
+    format: new ol.format.GeoJSON({
+      featureProjection: appView.getProjection()
+    })
+  }),
+  zIndex: 50
+});
+
 var map = new ol.Map({
-  layers: [baseLayer, tdx],
+  layers: [baseLayer, tdx, tdxPoints],
   target: 'map',
   view: appView
 });
