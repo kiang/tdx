@@ -31,6 +31,9 @@ function tdxStyle(f) {
   if(filterHurt && p.hurt <= 50) {
     return null;
   }
+  if(filterHurtRate && p.rateHurt <= 10) {
+    return null;
+  }
   if(currentFeature === f) {
     strokeWidth = 5;
   }
@@ -141,10 +144,12 @@ map.on('singleclick', function (evt) {
 
 var filterDead = false;
 var filterHurt = false;
+var filterHurtRate = false;
 $('#btnShowDead').click(function(e) {
   e.preventDefault();
   filterDead = true;
   filterHurt = false;
+  filterHurtRate = false;
   tdx.getSource().refresh();
 });
 
@@ -152,6 +157,7 @@ $('#btnShowAll').click(function(e) {
   e.preventDefault();
   filterDead = false;
   filterHurt = false;
+  filterHurtRate = false;
   tdx.getSource().refresh();
 });
 
@@ -159,5 +165,14 @@ $('#btnShowHurt').click(function(e) {
   e.preventDefault();
   filterHurt = true;
   filterDead = false;
+  filterHurtRate = false;
+  tdx.getSource().refresh();
+});
+
+$('#btnShowHurtRate').click(function(e) {
+  e.preventDefault();
+  filterDead = false;
+  filterHurt = false;
+  filterHurtRate = true;
   tdx.getSource().refresh();
 });
