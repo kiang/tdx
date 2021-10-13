@@ -15,8 +15,8 @@ var sidebarTitle = document.getElementById('sidebarTitle');
 var content = document.getElementById('sidebarContent');
 
 var appView = new ol.View({
-  center: ol.proj.fromLonLat([120.721507, 23.700694]),
-  zoom: 9
+  center: ol.proj.fromLonLat([120.721507, 24.200694]),
+  zoom: 12
 });
 
 function tdxStyle(f) {
