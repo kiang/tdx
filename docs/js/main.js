@@ -19,6 +19,29 @@ var appView = new ol.View({
   zoom: 9
 });
 
+function tdxStyle(f) {
+  var p = f.getProperties();
+  var color = 'rgba(255,255,255,0.5)';
+  var strokeWidth = 1;
+  var strokeColor = 'rgba(0,0,0,0.3)';
+  var textColor = '#000000';
+  if(p.dead > 0) {
+    color = 'rgba(255,0,0,0.8)';
+  } else if(p.hurt > 40) {
+    color = 'rgba(255,255,0,0.8)';
+  }
+  var baseStyle = new ol.style.Style({
+    stroke: new ol.style.Stroke({
+      color: strokeColor,
+      width: strokeWidth
+    }),
+    fill: new ol.style.Fill({
+      color: color
+    })
+  });
+  return baseStyle;
+}
+
 var baseLayer = new ol.layer.Tile({
   source: new ol.source.WMTS({
     matrixSet: 'EPSG:3857',
@@ -44,6 +67,7 @@ var tdx = new ol.layer.Vector({
       featureProjection: appView.getProjection()
     })
   }),
+  style: tdxStyle,
   zIndex: 50
 });
 
