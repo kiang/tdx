@@ -31,7 +31,7 @@ function tdxStyle(f) {
   if(filterHurt && p.hurt <= 50) {
     return null;
   }
-  if(filterHurtRate && p.rateHurt <= 10) {
+  if(filterHurtRate && p.rateHurt <= 15) {
     return null;
   }
   if(currentFeature === f) {

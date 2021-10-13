@@ -51,11 +51,31 @@ $fc = [
     'type' => 'FeatureCollection',
     'features' => [],
 ];
+$count = [
+    '0-5' => 0,
+    '6-10' => 0,
+    '11-15' => 0,
+    '16-20' => 0,
+    '>20' => 0,
+];
 foreach ($json['features'] as $f) {
     if (isset($sum[$f['properties']['VILLCODE']])) {
         $f['properties'] = array_merge($f['properties'], $sum[$f['properties']['VILLCODE']]);
+        if($f['properties']['rateHurt'] < 6) {
+            $count['0-5'] += 1;
+        } elseif($f['properties']['rateHurt'] < 11) {
+            $count['6-10'] += 1;
+        } elseif($f['properties']['rateHurt'] < 16) {
+            $count['11-15'] += 1;
+        } elseif($f['properties']['rateHurt'] < 21) {
+            $count['16-20'] += 1;
+        } else {
+            $count['>20'] += 1;
+        }
         $fc['features'][] = $f;
     }
 }
 
 file_put_contents(__DIR__ . '/docs/map.json', json_encode($fc, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
+print_r($count);
