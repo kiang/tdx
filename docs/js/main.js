@@ -37,9 +37,18 @@ var baseLayer = new ol.layer.Tile({
   opacity: 0.8
 });
 
+var tdx = new ol.layer.Vector({
+  source: new ol.source.Vector({
+    url: 'map.json',
+    format: new ol.format.GeoJSON({
+      featureProjection: appView.getProjection()
+    })
+  }),
+  zIndex: 50
+});
 
 var map = new ol.Map({
-  layers: [baseLayer],
+  layers: [baseLayer, tdx],
   target: 'map',
   view: appView
 });
