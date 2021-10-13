@@ -122,6 +122,8 @@ map.on('singleclick', function (evt) {
         message += '<tr><th scope="row" style="width: 100px;">村里</th><td>' + p.COUNTYNAME + p.TOWNNAME + p.VILLNAME + '</td></tr>';
         message += '<tr><th scope="row" style="width: 100px;">事故死亡</th><td>' + p.dead + '</td></tr>';
         message += '<tr><th scope="row" style="width: 100px;">事故受傷</th><td>' + p.hurt + '</td></tr>';
+        message += '<tr><th scope="row" style="width: 100px;">死亡率(每千人口)</th><td>' + p.rateDead + '</td></tr>';
+        message += '<tr><th scope="row" style="width: 100px;">受傷率(每千人口)</th><td>' + p.rateHurt + '</td></tr>';
         message += '</tbody></table>';
       } else {
         var message = '<table class="table table-dark">';
