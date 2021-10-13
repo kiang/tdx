@@ -25,6 +25,9 @@ function tdxStyle(f) {
   var strokeWidth = 1;
   var strokeColor = 'rgba(0,0,0,0.3)';
   var textColor = '#000000';
+  if(currentFeature === f) {
+    strokeWidth = 5;
+  }
   if(p.dead > 0) {
     color = 'rgba(255,0,0,0.8)';
   } else if(p.hurt > 40) {
@@ -73,7 +76,6 @@ var tdx = new ol.layer.Vector({
 
 var tdxPoints = new ol.layer.Vector({
   source: new ol.source.Vector({
-    url: 'points.json',
     format: new ol.format.GeoJSON({
       featureProjection: appView.getProjection()
     })
@@ -89,6 +91,7 @@ var map = new ol.Map({
 
 map.addControl(sidebar);
 
+var currentFeature = false;
 map.on('singleclick', function (evt) {
   content.innerHTML = '';
   pointClicked = false;
@@ -96,6 +99,19 @@ map.on('singleclick', function (evt) {
     if (false === pointClicked) {
       pointClicked = true;
       var p = feature.getProperties();
+      if(p.VILLCODE) {
+        $.getJSON('cunli/' + p.VILLCODE + '.json', function(c) {
+          var tdxSource = tdxPoints.getSource();
+          var jsonFormat = new ol.format.GeoJSON({
+            featureProjection: appView.getProjection()
+          });
+          tdxSource.clear();
+          tdxSource.addFeatures(jsonFormat.readFeatures(c));
+        });
+        currentFeature = feature;
+        tdx.getSource().refresh();
+      }
+      
       for(k in p) {
         if(k !== 'geometry') {
           content.innerHTML += k + ': ' + p[k] + '<br />';
