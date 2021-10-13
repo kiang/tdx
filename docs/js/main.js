@@ -25,6 +25,12 @@ function tdxStyle(f) {
   var strokeWidth = 1;
   var strokeColor = 'rgba(0,0,0,0.3)';
   var textColor = '#000000';
+  if(filterDead && p.dead <= 0) {
+    return null;
+  }
+  if(filterHurt && p.hurt <= 50) {
+    return null;
+  }
   if(currentFeature === f) {
     strokeWidth = 5;
   }
@@ -129,4 +135,27 @@ map.on('singleclick', function (evt) {
       sidebar.open('home');
     }
   });
+});
+
+var filterDead = false;
+var filterHurt = false;
+$('#btnShowDead').click(function(e) {
+  e.preventDefault();
+  filterDead = true;
+  filterHurt = false;
+  tdx.getSource().refresh();
+});
+
+$('#btnShowAll').click(function(e) {
+  e.preventDefault();
+  filterDead = false;
+  filterHurt = false;
+  tdx.getSource().refresh();
+});
+
+$('#btnShowHurt').click(function(e) {
+  e.preventDefault();
+  filterHurt = true;
+  filterDead = false;
+  tdx.getSource().refresh();
 });
