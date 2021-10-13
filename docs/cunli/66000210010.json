@@ -1,0 +1,33 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "dead": "0",
+                "hurt": "1"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    120.705634182212,
+                    24.3441402835716
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "dead": "0",
+                "hurt": "1"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    120.685183201759,
+                    24.3448217805125
+                ]
+            }
+        }
+    ]
+}

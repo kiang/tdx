@@ -1,0 +1,75 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "dead": "0",
+                "hurt": "2"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    120.55842084679,
+                    24.2367501685417
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "dead": "0",
+                "hurt": "1"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "dead": "0",
+                "hurt": "1"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    120.560000397065,
+                    24.2362126865045
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "dead": "0",
+                "hurt": "2"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    120.55843355422,
+                    24.2367553340566
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "dead": "0",
+                "hurt": "2"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    120.560578766241,
+                    24.2357070097734
+                ]
+            }
+        }
+    ]
+}
